@@ -7,7 +7,7 @@ This is a score card for the board game ***Cartographers*** by Thunderworks Game
 
 The score cards should let you play remotely, with a zoom/skype/hangouts call for the actual, like, human interaction part -- someone to flip and show the cards, etc.
 
-[[Go to the score card](https://mattsahr.github.io/cartographers/)]
+[[Go to the score card](https://chardila.github.io/cartographers/)]
 
 **Included stuff**  
 
