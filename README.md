@@ -9,7 +9,7 @@ The score cards should let you play remotely, with a zoom/skype/hangouts call fo
 
 [[Go to the score card](https://chardila.github.io/cartographers/)]
 
-**Included stuff**  
+**Included stuff ...**  
 
 - a slightly modified version of Alexey Kryazhev's [[ispinjs](https://github.com/uNmAnNeR/ispinjs)] library.
 
