@@ -1,0 +1,29 @@
+{
+  "name": "cartographers",
+  "version": "1.0.0",
+  "description": "This is a score card for the board game ***Cartographers*** by Thunderworks Games.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chardila/cartographers.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/chardila/cartographers/issues"
+  },
+  "homepage": "https://github.com/chardila/cartographers#readme",
+  "devDependencies": {
+    "eslint": "^9.39.2",
+    "prettier": "^3.7.4",
+    "vite": "^7.3.1"
+  }
+}

@@ -1,29 +1,11 @@
-# Ignore all JENKINS_HOME except jobs directory, root xml config, and
-# .gitignore file.
-# /*
-# !/jobs
-# !/.gitignore
-# !/*.xml
-
-# Ignore all files in jobs subdirectories except for folders.
-# Note: git doesn't track folders, only file content.
-jobs/**
-!jobs/**/
-
-# For performance reasons, we want to ignore builds in Jenkins jobs because it
-# contains many tiny files on large installations.  This can impact git
-# performance when running even basic commands like 'git status'.
-builds
-indexing
-
-# Exclude only config.xml files in repository subdirectories.
-!config.xml
-
-# Don't track workspaces (when users build on the master).
-jobs/**/*workspace
-
-.eslintrc
-package.json
-package-lock.json
-/dev_local
-/node_modules
+node_modules/
+dist/
+.env
+.DS_Store
+coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.idea
+.vscode
+*.local

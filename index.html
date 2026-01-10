@@ -8,20 +8,9 @@
 
 <head>
     <title>Cartographers</title>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" href="style/style.css" type="text/css">
-    <link rel="stylesheet" href="style/style-players.css" type="text/css">
-    <script type="text/javascript">
-        window.DEBUG = true;
-    </script>
-    <script defer type="text/javascript" src="js/nano.js"></script>
-    <script defer type="text/javascript" src="js/ispin.js"></script>
-    <script defer type="text/javascript" src="js/tostada.js"></script>
-	<!--OPTIONS  https://codeseven.github.io/toastr/demo.html  -->
-    <script defer type="text/javascript" src="js/app-local.js"></script>
-    <script defer type="text/javascript" src="js/app-opponents.js"></script>
-    <script defer type="text/javascript" src="js/app-db.js"></script>
-    <script defer type="text/javascript" src="js/app.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="/src/main.js"></script>
 </head>
 
 <body>
@@ -32,10 +21,12 @@
             <div class="question">Switch boards?</div>
             <div class="confirm-wrap">
                 <div class="confirm-inner confirm-a">
-                    <div class="confirm-button yes">Yes</div><div class="confirm-button no">No</div>
+                    <div class="confirm-button yes">Yes</div>
+                    <div class="confirm-button no">No</div>
                 </div>
                 <div class="confirm-inner confirm-b">
-                    <div class="confirm-button yes">Yes</div><div class="confirm-button no">No</div>
+                    <div class="confirm-button yes">Yes</div>
+                    <div class="confirm-button no">No</div>
                 </div>
             </div>
         </div>
@@ -46,17 +37,17 @@
         <div class="featured-board-frame-background"></div>
         <div class="featured-board-frame">
             <div class="terrain-wrap"></div>
-            
+
             <div class="featured-player-location">
                 <div class="close-me">x</div>
                 <div class="label">Player:</div>
                 <div class="featured-player-id" id="featured-player-target"></div>
             </div>
-            
+
             <div class="featured-board-location" id="featured-board-target"></div>
         </div>
     </div>
-    
+
     <div class="game-container" id="game-container-A">
         <div class="game-inner-wrap">
             <div class="game-frame" id="game-frame-A"></div>
@@ -64,7 +55,8 @@
         <div class="game-container-footer">
             <div class="game-container-footer-inner">
                 <div class="info" id="game-container-footer-A">
-                    <div class="player-id"></div><div class="game-id"></div>
+                    <div class="player-id"></div>
+                    <div class="game-id"></div>
                 </div>
                 <div class="buttons">
                     <div class="collapse-button" id="collapse-button-A">Hide Players</div>
@@ -82,26 +74,26 @@
 
                 <p><a href="https://www.thunderworksgames.com/cartographers.html">Get the board game</a>.</p>
 
-                <p>This score cards should let you play remotely, with a (zoom, skype, or hangouts) call for the actual, 
-                    like, human interaction part -- someone to flip and show the cards, etc.</p>  
+                <p>This score cards should let you play remotely, with a (zoom, skype, or hangouts) call for the actual,
+                    like, human interaction part -- someone to flip and show the cards, etc.</p>
 
                 <p>When you "JOIN" a game, you can see the other players' boards, and add monsters to them.</p>
-                
+
                 <p>Copy or modify on <a href="https://github.com/chardila/cartographers">Github</a>.</p>
                 </p>
             </div>
         </div>
-    
+
 
         <div class="title-wrap"></div>
-        
+
         <div class="terrain-wrap" id="main-terrain-wrap">
 
             <div class="join-game-controls">
                 <div class="menu-button join" id="overview-button">JOIN</div>
                 <div class="panel-anchor">
                     <div class="panel" id="network-overview">
-    
+
                         <div class="join-game-inputs" id="join-game-inputs-A">
                             <div class="join-game-input-wrap">
                                 <div class="label">Your Name</div>
@@ -115,25 +107,25 @@
                             </div>
                             <div class="join-button" disabled="true" id="join-button-A">Join Game</div>
                         </div>
-                        
+
                         <div class="cancel-pending-wrap" id="pending-cancel-wrap">
                             <div class="message">Waiting to join
                                 "<span class="game-id"></span>"
                             </div>
-                            <div class="join-button"  id="cancel-join">Cancel</div>
+                            <div class="join-button" id="cancel-join">Cancel</div>
                         </div>
 
                         <div class="exit-game-wrap" id="game-exit-wrap">
-                            <div class="message">Current game: 
+                            <div class="message">Current game:
                                 <span class="game-id"></span>
                             </div>
-                            <div class="join-button"  id="game-exit">Leave Game</div>
+                            <div class="join-button" id="game-exit">Leave Game</div>
                         </div>
 
                         <div class="create-new-game" id="create-new-game-A">
                             <div class="message">
                                 The game
-                                "<span class="game-id" id="message-new-game-id"></span>" 
+                                "<span class="game-id" id="message-new-game-id"></span>"
                                 will be a new game.
                                 <br /><br />
                                 Use game board A or B?
@@ -149,16 +141,17 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
-        
+
         <div id="board-location"></div>
-        
+
         <div class="gold-coins-wrap" id="gold-coins-wrapper"></div>
-        
+
         <div class="score-cards-wrap" id="score-cards-section"></div>
-                
-    </div> <! --- END page-container -->
+
+    </div> <!-- END page-container -->
 
 </body>
+
 </html>
