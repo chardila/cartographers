@@ -9,6 +9,44 @@ The score cards should let you play remotely, with a zoom/skype/hangouts call fo
 
 [[Go to the score card](https://chardila.github.io/cartographers/)]
 
+## Development Setup
+
+This project uses Vite for development and building.
+
+### Prerequisites
+- Node.js (v14 or higher)
+- npm
+
+### Getting Started
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/chardila/cartographers.git
+   cd cartographers
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Configure Firebase**
+   - Copy `.env.example` to `.env`
+   - Fill in your Firebase credentials in `.env`
+   ```bash
+   cp .env.example .env
+   ```
+
+4. **Run development server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Build for production**
+   ```bash
+   npm run build
+   ```
+
 **Included stuff ...**  
 
 - a slightly modified version of Alexey Kryazhev's [[ispinjs](https://github.com/uNmAnNeR/ispinjs)] library.
@@ -21,13 +59,7 @@ The score cards should let you play remotely, with a zoom/skype/hangouts call fo
 
 **Code Style, compatibility**
 
-Written in a bog-standard es5 flavor of javascript.  
-
-Had I known at the beginning I was going to add network interaction, I may have rethought that, maybe used React or Svelte.  But the surface area is just not that large.  And really, the Firebase client is all about promise-style callbacks anyway, it fits fine in an es5 workflow.
-
-I used the DOM element `classlist` method.  Even *IE10* sortof supports that?  However, I can't say it's tested much outside of recent Chrome, Firefox & IE Edge.
-
-There are no modules or requires, but the app is chopped into a few pieces.  Files past 800 lines I find increasingly annoying to work with.  Also, the module or pseudo-module interface helps one think in discrete chunks.  To bridge the pieces together, the app shares three global objects: 
+The project has been modernized to use Vite and ES Modules, while maintaining the original ES5-style JavaScript for the core game logic. The app is organized into discrete files for better maintainability, sharing state through global objects:
 
 ```javascript  
 constants = { ... }   
