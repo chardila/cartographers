@@ -1,4 +1,3 @@
-
 html * {
     box-sizing: border-box;
 }
@@ -15,6 +14,8 @@ body {
     overflow: hidden;
     transition: transform 700ms;
     position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .title-wrap {
@@ -44,6 +45,7 @@ body {
     margin: -2px -30px 0 0;
     cursor: pointer;
 }
+
 .title-wrap .about-link .question {
     display: inline;
 }
@@ -60,9 +62,11 @@ body {
     border-width: 3px;
     font-weight: bold;
 }
+
 .title-wrap .about-link.active .question {
     display: none;
 }
+
 .title-wrap .about-link.active .x-close {
     display: inline;
 }
@@ -76,6 +80,7 @@ body {
 /* ========== A-B BOARD CHOOSER =========================== */
 .join-game-controls {
     width: 28vw;
+    max-width: 350px;
     position: relative;
     z-index: 20;
     padding: 1.3vw 0 0 0;
@@ -90,13 +95,15 @@ body {
 
 .join-game-controls .menu-button {
     width: 18vw;
+    max-width: 220px;
     height: 4vw;
+    max-height: 50px;
     position: relative;
     border: solid 1px rgb(120, 120, 120);
     border-radius: 2px;
     opacity: 0.7;
     color: rgb(70, 70, 70);
-    font-size: 2vw;
+    font-size: clamp(14px, 2vw, 20px);
     cursor: pointer;
     padding: 0.8vw 0 0 0;
     letter-spacing: 0.1em;
@@ -108,75 +115,90 @@ body {
 
 .pending-icon {
     background-image: url(../images/git-commit.svg);
-    background-size: 2.4vw 2.4vw;
+    background-size: 2.4vmin 2.4vmin;
     position: absolute;
     display: block;
-    top: 0.7vw;
-    right: 1.2vw;
-    width: 2.4vw;
-    height: 2.4vw;
+    top: 0.7vmin;
+    right: 1.2vmin;
+    width: 2.4vmin;
+    height: 2.4vmin;
     opacity: 0.7;
 
     -webkit-transition-property: -webkit-transform;
     -moz-transition-property: -moz-transform;
     -o-transition-property: -o-transform;
-     transition-property: transform;
+    transition-property: transform;
 
-     overflow:hidden;
-    -webkit-animation:spin 2s linear infinite;
-    -moz-animation:spin 2s linear infinite;
-    animation:spin 2s linear infinite;
+    overflow: hidden;
+    -webkit-animation: spin 2s linear infinite;
+    -moz-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
 }
 
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
 
 .change-settings-button {
     background-image: url(../images/ionicons-git-compare.svg);
-    background-size: 2.4vw 2.4vw;
+    background-size: 2.4vmin 2.4vmin;
     position: absolute;
     display: block;
-    top: 0.7vw;
-    right: 1.2vw;
-    width: 2.4vw;
-    height: 2.4vw;
+    top: 0.7vmin;
+    right: 1.2vmin;
+    width: 2.4vmin;
+    height: 2.4vmin;
     opacity: 0.7;
 }
 
 .join-game-controls .menu-button .data {
     display: flex;
     justify-content: space-around;
-    font-size: 2vw;
+    font-size: 2vmin;
     padding: 0;
-    margin: 0 0 0 -2vw;
+    margin: 0 0 0 -2vmin;
 }
 
 .join-game-controls .menu-button .label {
-    font-size: 1vw;
+    font-size: 1vmin;
     font-family: sans-serif;
     position: absolute;
-    top: 0.4vw;
-    left: 0.9vw;
+    top: 0.4vmin;
+    left: 0.9vmin;
     color: rgb(120, 160, 120);
     letter-spacing: 0.03em;
 }
 
 .join-game-controls .menu-button.active {
-    width: 24vw;
+    width: 24vmin;
     letter-spacing: 0.05em;
     background-color: rgb(255, 246, 160);
 }
 
 .join-game-controls .menu-button.pending {
     background: rgb(230, 245, 250);
-    width: 24vw;
+    width: 24vmin;
 }
 
 .join-game-controls .menu-button.pending .pending-message {
-    font-size: 2vw;
+    font-size: 2vmin;
     letter-spacing: 0;
-    padding: 0 2vw 0 0;
+    padding: 0 2vmin 0 0;
 }
 
 .join-game-controls .menu-button:hover {
@@ -188,6 +210,7 @@ body {
 .join-game-controls .menu-button.join {
     background: rgb(225, 255, 200);
 }
+
 .join-game-controls .menu-button.join:hover {
     background: rgb(205, 255, 170);
 }
@@ -204,23 +227,27 @@ body {
     transform: scale(0.5, 0.5) translate(-10px, -10px);
     position: absolute;
     z-index: 20;
-    top: 0.1vw;
-    left: -0.8vw;
+    top: 0.1vmin;
+    left: -0.8vmin;
     background: rgb(250, 250, 250);
     border-radius: 2px;
-    box-shadow: 4px 4px 4vw rgba(0, 0, 0, 0.15);
-    padding: 2vw 3vw;
+    box-shadow: 4px 4px 4vmin rgba(0, 0, 0, 0.15);
+    padding: 2vmin 3vmin;
 }
 
-.join-game-controls .panel.show { display: block; }
-.join-game-controls .panel.opaque { 
-    opacity: 1; 
-    transform: scale(1, 1)  translate(0, -6px);
+.join-game-controls .panel.show {
+    display: block;
+}
+
+.join-game-controls .panel.opaque {
+    opacity: 1;
+    transform: scale(1, 1) translate(0, -6px);
 }
 
 .join-game-inputs {
     padding: 1vw 0 0 0;
 }
+
 .join-game-inputs.hidden {
     display: none;
 }
@@ -243,6 +270,7 @@ body {
     line-height: 1;
     font-family: sans-serif;
 }
+
 .join-game-input-wrap .error {
     position: absolute;
     top: 0;
@@ -276,6 +304,7 @@ body {
 .join-button {
     font-size: calc(10px + 1vw);
     width: 22vw;
+    max-width: 275px;
     margin: 3vw 3vw;
     padding: 1vw 3vw;
     text-align: center;
@@ -308,6 +337,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
 .create-new-game {
     margin: 0 0 2vw 0;
 }
@@ -346,8 +376,7 @@ body {
 
 
 
-.a-b-selector-wrap {
-}
+.a-b-selector-wrap {}
 
 .a-b-selector {
     border: solid 1px rgb(180, 180, 180);
@@ -387,6 +416,7 @@ body {
 .a-b-choice.choice-a {
     border-width: 0 1px 0 0;
 }
+
 .a-b-choice.choice-cancel {
     border-width: 0 0 0 1px;
     font-size: 0.5em;
@@ -408,7 +438,9 @@ body {
 .terrain-wrap {
     padding: 2vw 6px 2vw 1vw;
     width: 84vw;
+    max-width: 1050px;
     height: 7vw;
+    max-height: 90px;
     display: flex;
     justify-content: space-between;
     touch-action: manipulation;
@@ -418,15 +450,18 @@ body {
     position: relative;
     cursor: pointer;
     width: 7vw;
+    max-width: 90px;
     height: 7vw;
+    max-height: 90px;
     padding: 1.1vw;
     border-radius: 7.5vw;
 }
+
 .terrain-wrap .terrain-type:hover {
     opacity: 0.7;
 }
 
-.terrain-wrap .terrain-type .terrain-inner { 
+.terrain-wrap .terrain-type .terrain-inner {
     height: 100%;
     width: 100%;
     border: solid 1px rgb(160, 160, 160);
@@ -451,6 +486,7 @@ body {
 .gold-coins-wrap {
     padding: 0vw 4vw 1vw 4vw;
     width: 90vw;
+    max-width: 1120px;
     display: flex;
     flex-direction: row;
     touch-action: manipulation;
@@ -460,7 +496,9 @@ body {
     border: solid 1px rgb(160, 160, 160);
     border-radius: 40px;
     width: 5vw;
+    max-width: 62px;
     height: 4.7vw;
+    max-height: 58px;
     margin: 0.2vw;
     padding: 0.5vw 0.5vw 0.5vw 0.4vw;
     cursor: pointer;
@@ -473,7 +511,7 @@ body {
 }
 
 .gold-coin.active .inner {
-    background: rgb(255,240,0);
+    background: rgb(255, 240, 0);
     background: radial-gradient(circle, rgb(255 240 0) 0%, rgb(255 198 5) 80%, rgb(160 110 0) 81%);
 }
 
@@ -494,7 +532,7 @@ body {
 }
 
 .reset-board-button {
-     background-image: url(../images/refresh-ccw.svg);
+    background-image: url(../images/refresh-ccw.svg);
     background-position: 1.4vw 1.1vw;
     background-size: 2.4vw 2.4vw;
     background-repeat: no-repeat;
@@ -590,8 +628,8 @@ body {
 }
 
 .modal-about-info a:hover {
-   color: rgb(0, 200, 225);
- }
+    color: rgb(0, 200, 225);
+}
 
 /* ========== MODAL SWITCH BOARDS WARNING =========================== */
 
@@ -672,6 +710,7 @@ body {
 .score-cards-wrap {
     padding: 5vw 4vw 0 4vw;
     width: 90vw;
+    max-width: 1120px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -683,6 +722,7 @@ body {
     width: 31%;
     margin: 0 0 4vw 0;
     height: 11vw;
+    max-height: 137px;
     border-radius: 2px;
     border: solid 1px rgb(180, 180, 180);
     position: relative;
@@ -691,10 +731,10 @@ body {
 .score-card-title {
     width: 100%;
     position: absolute;
-    color: rgb( 190, 190, 190);
+    color: rgb(190, 190, 190);
     text-transform: uppercase;
-    font-size: 2vw;
-    top: -3.3vw;
+    font-size: 2vmin;
+    top: -3.3vmin;
     letter-spacing: 0.1em;
     padding: 4px;
 }
@@ -711,9 +751,9 @@ body {
 }
 
 .score-result {
-    font-size: 3vw;
+    font-size: 3vmin;
     text-align: right;
-    padding: 3.6vw 1vw 0 0;
+    padding: 3.6vmin 1vmin 0 0;
 }
 
 .score-row {
@@ -737,11 +777,11 @@ body {
 input.score-input {
     width: 72%;
     height: 100%;
-    padding: 0.3vw 0 0 0.5vw;
-    font-size: 2.2vw;
+    padding: 0.3vmin 0 0 0.5vmin;
+    font-size: 2.2vmin;
     border-width: 0;
     text-align: right;
-} 
+}
 
 input.score-input:focus {
     outline: none !important;
@@ -750,16 +790,16 @@ input.score-input:focus {
 .final-score-card {
     display: flex;
     width: 31%;
-    height: 11vw;
+    height: 11vmin;
     border-radius: 2px;
     border: solid 2px rgb(120, 120, 120);
     position: relative;
 }
 
 .final-score-result {
-    font-size: 4.2vw;
+    font-size: 4.2vmin;
     text-align: right;
-    padding: 2.6vw 1.2vw 0 0;
+    padding: 2.6vmin 1.2vmin 0 0;
     height: 100%;
     width: 100%;
     color: rgb(230, 70, 30);
@@ -770,16 +810,16 @@ input.score-input:focus {
 /* ============ GAME BOARD =========================== */
 
 .board-wrap {
-    padding: 4vw 4vw 4vw 0;
-    width: 90vw;
-    height: 90vw;
+    padding: 2vmin;
+    width: 90vmin;
+    height: 90vmin;
     display: flex;
-    flex-direction: column;            
+    flex-direction: column;
 }
 
 .row {
     display: flex;
-    flex-direction: row;            
+    flex-direction: row;
     height: 8.6%;
     touch-action: manipulation;
 }
@@ -798,9 +838,9 @@ input.score-input:focus {
     border-width: 0;
 }
 
-.row .cell.label, 
+.row .cell.label,
 .row .cell.number-label {
-    font-size: 2.6vw;
+    font-size: 2.5vmin;
     text-align: center;
     vertical-align: middle;
     color: rgb(200, 220, 240);
@@ -810,12 +850,12 @@ input.score-input:focus {
 .row .cell.label {
     border-width: 0 1px 0 0;
     width: 5%;
-    line-height: 7.4vw;
+    line-height: 7.4vmin;
 }
 
 .row .cell.number-label {
     border-width: 1px 0 0 0;
-    line-height: 4.4vw;
+    line-height: 4.4vmin;
 }
 
 
@@ -836,54 +876,57 @@ input.score-input:focus {
     opacity: 1;
 }
 
-.game-square.forest, 
+.game-square.forest,
 .terrain-wrap .terrain-forest .terrain-inner {
     font-size: 50px;
     background-color: rgb(110, 205, 130);
-    background-image: repeating-radial-gradient( circle at 0.5em 0.5em, rgb(90, 195, 110), rgb(90, 195, 110) 0.1em, transparent 0.11em, transparent 0.45em, rgb(90, 195, 110) 0.46em);
+    background-image: repeating-radial-gradient(circle at 0.5em 0.5em, rgb(90, 195, 110), rgb(90, 195, 110) 0.1em, transparent 0.11em, transparent 0.45em, rgb(90, 195, 110) 0.46em);
     background-size: 1em 1em;
     background-position: 0.5em 0.5em;
 }
 
 .terrain-wrap .terrain-river .terrain-inner,
 .game-square.river {
-    background: radial-gradient(circle at 100% 50%, rgb(0 0 0 / 0%) 20%, rgba(255,255,255,.3) 21%, rgba(255,255,255,.3) 34%, rgb(0 0 0 / 0%) 35%, rgb(0 0 0 / 0%)), radial-gradient(circle at 0% 50%, rgb(0 0 0 / 0%) 20%, rgba(255,255,255,.3) 21%, rgba(255,255,255,.3) 34%, rgb(0 0 0 / 0%) 35%, rgb(0 0 0 / 0%)) 0 -6vw;
+    background: radial-gradient(circle at 100% 50%, rgb(0 0 0 / 0%) 20%, rgba(255, 255, 255, .3) 21%, rgba(255, 255, 255, .3) 34%, rgb(0 0 0 / 0%) 35%, rgb(0 0 0 / 0%)), radial-gradient(circle at 0% 50%, rgb(0 0 0 / 0%) 20%, rgba(255, 255, 255, .3) 21%, rgba(255, 255, 255, .3) 34%, rgb(0 0 0 / 0%) 35%, rgb(0 0 0 / 0%)) 0 -6vw;
     background-color: rgb(120 160 205);
     background-size: 3vw 4vw;
 }
 
-.game-square.field, 
+.game-square.field,
 .terrain-wrap .terrain-field .terrain-inner {
     background-color: rgb(250, 190, 110);
-    background-image: repeating-linear-gradient(45deg, rgb(0 0 0 / 0%), rgb(0 0 0 / 0%) 15px, rgba(255,255,255,0.2) 15px, rgba(255,255,255,0.2) 26px);
+    background-image: repeating-linear-gradient(45deg, rgb(0 0 0 / 0%), rgb(0 0 0 / 0%) 15px, rgba(255, 255, 255, 0.2) 15px, rgba(255, 255, 255, 0.2) 26px);
 }
 
-.game-square.town, 
+.game-square.town,
 .terrain-wrap .terrain-town .terrain-inner {
     background:
-    linear-gradient(45deg, rgb(220, 100, 80) 22.5px, transparent 22.5px)32px 32px,
-    linear-gradient(45deg, rgb(220, 100, 80) 22.5px, transparent 22.5px,transparent 45.5px, rgb(200, 80, 60) 45.5px, rgb(200, 80, 60) 67.5px, transparent 67.5px),
-    linear-gradient(-45deg, rgb(220, 100, 80) 11.5px, transparent 11.5px, transparent 34px, rgb(220, 100, 80) 34px, rgb(220, 100, 80) 56.5px,transparent 56.5px,transparent 79px, rgb(220, 100, 80) 79px);
-    background-color:rgb(200, 80, 60);
+        linear-gradient(45deg, rgb(220, 100, 80) 22.5px, transparent 22.5px)32px 32px,
+        linear-gradient(45deg, rgb(220, 100, 80) 22.5px, transparent 22.5px, transparent 45.5px, rgb(200, 80, 60) 45.5px, rgb(200, 80, 60) 67.5px, transparent 67.5px),
+        linear-gradient(-45deg, rgb(220, 100, 80) 11.5px, transparent 11.5px, transparent 34px, rgb(220, 100, 80) 34px, rgb(220, 100, 80) 56.5px, transparent 56.5px, transparent 79px, rgb(220, 100, 80) 79px);
+    background-color: rgb(200, 80, 60);
     background-size: 64px 64px;
 }
 
 
-.game-square.crevasse, .terrain-wrap .terrain-crevasse .terrain-inner {
+.game-square.crevasse,
+.terrain-wrap .terrain-crevasse .terrain-inner {
     background-color: #6d695c;
     background-image:
-    repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
-    repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
-    linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
-    linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+        repeating-linear-gradient(120deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .1) 1px, transparent 1px, transparent 60px),
+        repeating-linear-gradient(60deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .1) 1px, transparent 1px, transparent 60px),
+        linear-gradient(60deg, rgba(0, 0, 0, .1) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, .1) 75%, rgba(0, 0, 0, .1)),
+        linear-gradient(120deg, rgba(0, 0, 0, .1) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, .1) 75%, rgba(0, 0, 0, .1));
     background-size: 2vw 4vw;
 }
+
 .game-square.crevasse {
     cursor: default;
     border-color: rgb(109, 105, 92);
 }
 
-.game-square.monster, .terrain-wrap .terrain-monster .terrain-inner {
+.game-square.monster,
+.terrain-wrap .terrain-monster .terrain-inner {
     background-color: rgb(180, 140, 240);
 }
 
@@ -896,7 +939,7 @@ input.score-input:focus {
     content: "";
     position: absolute;
     top: 0.5vw;
-    left: 1.1vw;          
+    left: 1.1vw;
 }
 
 .game-square.ruins::after {
@@ -909,7 +952,7 @@ input.score-input:focus {
     position: absolute;
     top: 0.9vw;
     left: 0.9vw;
-    opacity: 0.2;     
+    opacity: 0.2;
 }
 
 .game-square.mountain,
@@ -927,7 +970,7 @@ input.score-input:focus {
     position: absolute;
     top: 0.1vw;
     left: 0.6vw;
-    opacity: 0.6;       
+    opacity: 0.6;
 }
 
 .game-square.mountain::after {
@@ -940,7 +983,7 @@ input.score-input:focus {
     position: absolute;
     top: 1vw;
     left: 0.9vw;
-    opacity: 0.4;      
+    opacity: 0.4;
 }
 
 .terrain-wrap .terrain-monster .terrain-inner::before {
@@ -953,7 +996,7 @@ input.score-input:focus {
     position: absolute;
     top: 0.5vw;
     left: 0.55vw;
-    opacity: 0.6;       
+    opacity: 0.6;
 }
 
 .game-square.monster::before {
@@ -966,7 +1009,7 @@ input.score-input:focus {
     position: absolute;
     top: 0.6vw;
     left: 0.8vw;
-    opacity: 0.3;    
+    opacity: 0.3;
 }
 
 .score-field-monsters {
@@ -992,12 +1035,16 @@ input.score-input:focus {
     letter-spacing: 0.15em;
 }
 
-.terrain-mountain, .terrain-crevasse, .terrain-ruins {
+.terrain-mountain,
+.terrain-crevasse,
+.terrain-ruins {
     display: none;
 }
 
 
-.setup-mode .terrain-mountain, .setup-mode .terrain-crevasse, .setup-mode .terrain-ruins {
+.setup-mode .terrain-mountain,
+.setup-mode .terrain-crevasse,
+.setup-mode .terrain-ruins {
     display: block;
 }
 
@@ -1010,6 +1057,7 @@ input.score-input:focus {
 .network-game-active.network-game-open .page-container {
     transform: translate(0, 19vw);
 }
+
 .network-game-active.network-game-open .page-container .title-wrap {
     opacity: 0;
     pointer-events: none;
@@ -1026,7 +1074,7 @@ input.score-input:focus {
 }
 
 input.score-input {
-    -moz-appearance:textfield;
+    -moz-appearance: textfield;
 }
 
 .ispin-wrapper {
@@ -1066,21 +1114,27 @@ input.score-input {
 .ispin-wrapper .ispin-button:hover::before {
     opacity: 1;
 }
+
 .ispin-wrapper .ispin-button.ispin-button-inc {
     top: 0
 }
+
 .ispin-wrapper .ispin-button.ispin-button-inc::before {
     border-bottom: 7px solid rgb(140, 180, 200)
 }
+
 .ispin-wrapper .ispin-button.ispin-button-inc:disabled:before {
     border-bottom-color: grey;
 }
+
 .ispin-wrapper .ispin-button.ispin-button-dec {
     bottom: 0
 }
+
 .ispin-wrapper .ispin-button.ispin-button-dec:before {
     border-top: 7px solid rgb(140, 180, 200)
 }
+
 .ispin-wrapper .ispin-button.ispin-button-dec:disabled:before {
     border-top-color: grey;
 }
@@ -1090,7 +1144,10 @@ input.score-input {
 /* =============== RESPONSIVE ======================= */
 
 
-@media /*only screen and (max-width: 767px) or */ (pointer: coarse) {
+@media
+
+/*only screen and (max-width: 767px) or */
+(pointer: coarse) {
 
     .title-wrap {
         padding: 1vw 0vw 2vw 3vw;
@@ -1100,18 +1157,18 @@ input.score-input {
         margin: -4px -20px 0 0;
         cursor: pointer;
     }
-    
+
     .terrain-wrap {
         padding: 2vw 0 8vw 6vw;
         width: 98vw;
     }
-    
+
     .terrain-wrap .terrain-type {
         width: 10vw;
         height: 10vw;
         padding: 1.4vw;
     }
-    
+
     .terrain-wrap .terrain-monster .terrain-inner::before {
         background-size: 5.5vw 5.4vw;
         width: 5.6vw;
@@ -1125,8 +1182,8 @@ input.score-input {
         width: 98vw;
         height: 98vw;
     }
-    
-    
+
+
     .game-square.monster::before {
         background-size: 5.8vw 5.7vw;
         width: 5.8vw;
@@ -1134,7 +1191,7 @@ input.score-input {
         top: 0.6vw;
         left: 1.1vw;
     }
-    
+
     .game-square.mountain::after {
         background-size: 5.8vw 5.8vw;
         width: 5.8vw;
@@ -1142,7 +1199,7 @@ input.score-input {
         top: 0.6vw;
         left: 1vw;
     }
-    
+
     .game-square.ruins::after {
         top: 1.1vw;
         left: 1.4vw;
@@ -1152,7 +1209,7 @@ input.score-input {
         padding: 2vw 0vw 3vw 1vw;
         width: 96vw;
     }
-    
+
     .gold-coin {
         width: 6.8vw;
         height: 6vw;
@@ -1173,18 +1230,18 @@ input.score-input {
         height: 18vw;
         border-width: 1px;
     }
-    
+
     .score-field-monsters::after {
         background-size: 10vw 10vw;
         width: 10vw;
         height: 9.8vw;
     }
-    
+
     input.score-input {
         padding: 0.6vw 0.6vw 0 0.5vw;
         font-size: 3.5vw;
     }
-    
+
     .score-card-left {
         width: 72%;
     }
@@ -1197,7 +1254,7 @@ input.score-input {
         font-size: 6vw;
         padding-top: 5vw;
     }
-    
+
     .final-score-card {
         width: 100%;
         height: 14vw;
@@ -1215,9 +1272,11 @@ input.score-input {
         border-left-width: 12px;
         border-right-width: 12px;
     }
+
     .ispin-wrapper .ispin-button.ispin-button-inc::before {
         border-bottom-width: 14px
     }
+
     .ispin-wrapper .ispin-button.ispin-button-dec:before {
         border-top-width: 14px
     }
@@ -1229,4 +1288,3 @@ input.score-input {
 
 
 }
-
