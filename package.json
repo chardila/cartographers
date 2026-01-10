@@ -1,6 +1,7 @@
 {
   "name": "cartographers",
   "version": "1.0.0",
+  "type": "module",
   "description": "This is a score card for the board game ***Cartographers*** by Thunderworks Games.",
   "main": "index.js",
   "scripts": {
