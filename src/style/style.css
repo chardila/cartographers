@@ -1179,8 +1179,8 @@ input.score-input {
 
     .board-wrap {
         padding: 4vw 0vw;
-        width: 98vw;
-        height: 98vw;
+        width: min(98vw, calc(100vh - 260px));
+        height: min(98vw, calc(100vh - 260px));
     }
 
 
