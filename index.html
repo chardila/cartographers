@@ -87,68 +87,72 @@
 
         <div class="title-wrap"></div>
 
-        <div class="terrain-wrap" id="main-terrain-wrap">
+        <div class="col-board">
+            <div class="terrain-wrap" id="main-terrain-wrap">
 
-            <div class="join-game-controls">
-                <div class="menu-button join" id="overview-button">JOIN</div>
-                <div class="panel-anchor">
-                    <div class="panel" id="network-overview">
+                <div class="join-game-controls">
+                    <div class="menu-button join" id="overview-button">JOIN</div>
+                    <div class="panel-anchor">
+                        <div class="panel" id="network-overview">
 
-                        <div class="join-game-inputs" id="join-game-inputs-A">
-                            <div class="join-game-input-wrap">
-                                <div class="label">Your Name</div>
-                                <div class="error" id="player-name-input-error">Min 3 letters</div>
-                                <input type="search" class="join-game-input" id="player-name-input" />
+                            <div class="join-game-inputs" id="join-game-inputs-A">
+                                <div class="join-game-input-wrap">
+                                    <div class="label">Your Name</div>
+                                    <div class="error" id="player-name-input-error">Min 3 letters</div>
+                                    <input type="search" class="join-game-input" id="player-name-input" />
+                                </div>
+                                <div class="join-game-input-wrap">
+                                    <div class="label">Game Name</div>
+                                    <div class="error" id="game-id-input-error">Min 3 letters</div>
+                                    <input type="search" class="join-game-input" id="game-id-input" />
+                                </div>
+                                <div class="join-button" disabled="true" id="join-button-A">Join Game</div>
                             </div>
-                            <div class="join-game-input-wrap">
-                                <div class="label">Game Name</div>
-                                <div class="error" id="game-id-input-error">Min 3 letters</div>
-                                <input type="search" class="join-game-input" id="game-id-input" />
+
+                            <div class="cancel-pending-wrap" id="pending-cancel-wrap">
+                                <div class="message">Waiting to join
+                                    "<span class="game-id"></span>"
+                                </div>
+                                <div class="join-button" id="cancel-join">Cancel</div>
                             </div>
-                            <div class="join-button" disabled="true" id="join-button-A">Join Game</div>
+
+                            <div class="exit-game-wrap" id="game-exit-wrap">
+                                <div class="message">Current game:
+                                    <span class="game-id"></span>
+                                </div>
+                                <div class="join-button" id="game-exit">Leave Game</div>
+                            </div>
+
+                            <div class="create-new-game" id="create-new-game-A">
+                                <div class="message">
+                                    The game
+                                    "<span class="game-id" id="message-new-game-id"></span>"
+                                    will be a new game.
+                                    <br /><br />
+                                    Use game board A or B?
+                                </div>
+
+                                <div class="a-b-selector">
+                                    <div class="a-b-choice choice-a" id="selector-choice-a">A</div>
+                                    <div class="a-b-choice choice-b" id="selector-choice-b">B</div>
+                                    <div class="a-b-choice choice-cancel" id="selector-choice-cancel">CANCEL</div>
+                                </div>
+                            </div>
+
                         </div>
-
-                        <div class="cancel-pending-wrap" id="pending-cancel-wrap">
-                            <div class="message">Waiting to join
-                                "<span class="game-id"></span>"
-                            </div>
-                            <div class="join-button" id="cancel-join">Cancel</div>
-                        </div>
-
-                        <div class="exit-game-wrap" id="game-exit-wrap">
-                            <div class="message">Current game:
-                                <span class="game-id"></span>
-                            </div>
-                            <div class="join-button" id="game-exit">Leave Game</div>
-                        </div>
-
-                        <div class="create-new-game" id="create-new-game-A">
-                            <div class="message">
-                                The game
-                                "<span class="game-id" id="message-new-game-id"></span>"
-                                will be a new game.
-                                <br /><br />
-                                Use game board A or B?
-                            </div>
-
-                            <div class="a-b-selector">
-                                <div class="a-b-choice choice-a" id="selector-choice-a">A</div>
-                                <div class="a-b-choice choice-b" id="selector-choice-b">B</div>
-                                <div class="a-b-choice choice-cancel" id="selector-choice-cancel">CANCEL</div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
+
             </div>
 
+            <div id="board-location"></div>
         </div>
 
-        <div id="board-location"></div>
+        <div class="col-scores">
+            <div class="gold-coins-wrap" id="gold-coins-wrapper"></div>
 
-        <div class="gold-coins-wrap" id="gold-coins-wrapper"></div>
-
-        <div class="score-cards-wrap" id="score-cards-section"></div>
+            <div class="score-cards-wrap" id="score-cards-section"></div>
+        </div>
 
     </div> <!-- END page-container -->
 
