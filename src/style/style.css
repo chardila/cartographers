@@ -1308,6 +1308,11 @@ input.score-input {
         padding: 1vw 2vw 2vw 3vw;
     }
 
+    /* Cap letter size so title doesn't dominate the screen on wide viewports */
+    .title-wrap .letter {
+        font-size: min(4vw, 26px);
+    }
+
     /* Left column: terrain selector + board */
     .col-board {
         grid-column: 1;
@@ -1340,11 +1345,12 @@ input.score-input {
         padding: 2vmin 1vmin;
     }
 
-    /* Gold coins: fill the right column */
+    /* Gold coins: fill the right column, allow wrapping (14 coins won't fit in one row) */
     .gold-coins-wrap {
         width: 100%;
         max-width: none;
         padding: 1.5vw 1vw 1vw 0.5vw;
+        flex-wrap: wrap;
     }
 
     /* Score cards container: fill right column, no large top padding */
