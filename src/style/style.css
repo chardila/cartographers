@@ -1377,4 +1377,59 @@ input.score-input {
         margin: 0 0 2vw 0;
     }
 
+    /* JOIN button: reduce width so it fits alongside the 5 terrain items in the left column.
+       At 900px: 5 terrain items × 63px = 315px + 18vw=162px = 477px < ~511px available. */
+    .join-game-controls {
+        width: 18vw;
+        max-width: 195px;
+    }
+
+    .join-game-controls .menu-button {
+        width: 15vw;
+        max-width: 160px;
+    }
+
+    /* Terrain selector icons: scale down to fit inside terrain-type inner cell at large viewports */
+    .terrain-wrap .terrain-monster .terrain-inner::before {
+        background-size: 3vw 2.8vw;
+        width: 3vw;
+        height: 2.8vw;
+        top: 0.3vw;
+        left: 0.4vw;
+    }
+
+    .terrain-mountain .terrain-inner::after {
+        background-size: 3vw 2.9vw;
+        width: 3vw;
+        height: 2.9vw;
+        top: 0.1vw;
+        left: 0.5vw;
+    }
+
+    /* Board cell icons: scale down ~65% to fit smaller cells (cell ≈ 4.7vw at board=55vw).
+       Original icons were 5.3–5.6vw; at 1440px they exceed the ~66px cell size. */
+    .game-square.monster::before {
+        background-size: 3.5vw 3.4vw;
+        width: 3.5vw;
+        height: 3.4vw;
+        top: 0.4vw;
+        left: 0.5vw;
+    }
+
+    .game-square.ruins::after {
+        background-size: 3.1vw 3.2vw;
+        width: 3.1vw;
+        height: 3.2vw;
+        top: 0.6vw;
+        left: 0.6vw;
+    }
+
+    .game-square.mountain::after {
+        background-size: 3.4vw 3.2vw;
+        width: 3.4vw;
+        height: 3.3vw;
+        top: 0.65vw;
+        left: 0.6vw;
+    }
+
 }
