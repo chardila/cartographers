@@ -1288,3 +1288,87 @@ input.score-input {
 
 
 }
+/* ======= DESKTOP TWO-COLUMN LAYOUT (≥ 900px wide) ============= */
+
+@media (min-width: 900px) {
+
+    /* Switch page container to CSS Grid */
+    .page-container {
+        display: grid;
+        grid-template-columns: 60fr 40fr;
+        grid-template-rows: auto 1fr;
+        align-items: start;
+        column-gap: 0;
+    }
+
+    /* Title bar spans both columns */
+    .title-wrap {
+        grid-column: 1 / -1;
+        width: 100%;
+        padding: 1vw 2vw 2vw 3vw;
+    }
+
+    /* Left column: terrain selector + board */
+    .col-board {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    /* Right column: gold coins + score cards */
+    .col-scores {
+        grid-column: 2;
+        grid-row: 2;
+        padding: 0 2vw 0 1vw;
+    }
+
+    /* Terrain selector fills the left column width */
+    .terrain-wrap {
+        width: 100%;
+        max-width: none;
+        padding: 1.5vw 6px 1.5vw 1vw;
+        height: 7vw;
+        max-height: 90px;
+    }
+
+    /* Board: constrain to fit in viewport height.
+       - 55vw: fills left column (which is 60% wide)
+       - calc(100vh - 130px): leaves room for title (~60px) and terrain bar (~70px)
+       Takes whichever is smaller so nothing overflows. */
+    .board-wrap {
+        width: min(55vw, calc(100vh - 130px));
+        height: min(55vw, calc(100vh - 130px));
+        padding: 2vmin 1vmin;
+    }
+
+    /* Gold coins: fill the right column */
+    .gold-coins-wrap {
+        width: 100%;
+        max-width: none;
+        padding: 1.5vw 1vw 1vw 0.5vw;
+    }
+
+    /* Score cards container: fill right column, no large top padding */
+    .score-cards-wrap {
+        width: 100%;
+        max-width: none;
+        padding: 2vw 0.5vw 0 0.5vw;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    /* Score cards: 2 per row in the right column */
+    .score-card {
+        width: 48%;
+        height: 11vw;
+        max-height: 137px;
+        margin: 0 0 3vw 0;
+    }
+
+    /* Final score card: full width of right column */
+    .final-score-card {
+        width: 100%;
+        margin: 0 0 2vw 0;
+    }
+
+}
