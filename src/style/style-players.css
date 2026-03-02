@@ -1,698 +1,800 @@
-
 /* ============== NETWORK GAME MODE =========================== */
 .game-container {
-    display: block;
-    margin: 0;
-    position: absolute;
-    z-index: 50;
-    width: 100%;
-    overflow: hidden;
-    padding: 0;
-    height: 24vw;
-    transition: transform 700ms cubic-bezier(0.5, 1, 0.89, 1);
-    transform: translate(0, -21vw);
+  display: block;
+  margin: 0;
+  position: absolute;
+  z-index: 50;
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  height: 24vw;
+  transition: transform 700ms cubic-bezier(0.5, 1, 0.89, 1);
+  transform: translate(0, -21vw);
 }
 
 .game-inner-wrap {
-    background: rgb(40, 42, 70);
-    height: 20.4vw;
-    margin: 0 0 0.6vw 0;
-    width: 100%;
-    color: white;
-    scrollbar-width: thin;
-    scrollbar-color: #90A4AE /* thumbBG */ #CFD8DC  /* scrollbarBG */ ;
-    overflow-x: scroll;
-    overflow-y: hidden;
+  background: rgb(40, 42, 70);
+  height: 20.4vw;
+  margin: 0 0 0.6vw 0;
+  width: 100%;
+  color: white;
+  scrollbar-width: thin;
+  scrollbar-color: #90a4ae /* thumbBG */ #cfd8dc /* scrollbarBG */;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 
 .game-inner-wrap::-webkit-scrollbar {
-    width: 14px;
-    height: 14px;
+  width: 14px;
+  height: 14px;
 }
 .game-inner-wrap::-webkit-scrollbar-track {
-  background: #CFD8DC  /* scrollbarBG */;
+  background: #cfd8dc /* scrollbarBG */;
 }
 .game-inner-wrap::-webkit-scrollbar-thumb {
-  background-color: #90A4AE /* thumbBG */;
+  background-color: #90a4ae /* thumbBG */;
   border-radius: 3px;
-  border: 0 solid #CFD8DC  /* scrollbarBG */;
+  border: 0 solid #cfd8dc /* scrollbarBG */;
 }
 
 .game-frame {
-    height:  calc(20.4vw - 15px);
-    padding: 0 2vw;
-    display: flex;
+  height: calc(20.4vw - 15px);
+  padding: 0 2vw;
+  display: flex;
 }
 
 .game-container-footer {
-    width: 100%;
-    height: 3vw;
-    border: solid rgb(180, 180, 180);
-    border-width: 0 0 1px 0;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 300ms;
+  width: 100%;
+  height: 3vw;
+  border: solid rgb(180, 180, 180);
+  border-width: 0 0 1px 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 300ms;
 }
 
 .game-container-footer-inner {
-    width: 93vw;
-    display: flex;
-    height: 3vw;
-    padding: 0 3vw 0 4vw;
-    justify-content: space-between;
+  width: 93vw;
+  display: flex;
+  height: 3vw;
+  padding: 0 3vw 0 4vw;
+  justify-content: space-between;
 }
 
 .game-container-footer .info,
 .game-container-footer .buttons {
-    color: rgb(70, 70, 70);
-    font-size: 1.7vw;
-    display: flex;
-    font-family: sans-serif;
+  color: rgb(70, 70, 70);
+  font-size: 1.7vw;
+  display: flex;
+  font-family: sans-serif;
 }
 
 .game-container-footer .info {
-    padding: 0.2vw 2vw 0 3.4vw;
+  padding: 0.2vw 2vw 0 3.4vw;
 }
 
 .game-container-footer .buttons {
-    padding: 0 0 0 2vw;
+  padding: 0 0 0 2vw;
 }
 
 .game-container-footer .info > div {
-    padding: 0.4vw 2vw 0 2vw;
+  padding: 0.4vw 2vw 0 2vw;
 }
 
 .game-container-footer .info .label {
-    font-size: 0.7em;
-    padding: 0 1vw 0 0;
-    text-transform: uppercase;
-    opacity: 0.4;
+  font-size: 0.7em;
+  padding: 0 1vw 0 0;
+  text-transform: uppercase;
+  opacity: 0.4;
 }
 
 .game-container-footer .info .data {
-    padding: 0 1vw 0 0;
+  padding: 0 1vw 0 0;
 }
 
 .game-container-footer .buttons {
-    justify-content: right;
+  justify-content: right;
 }
 
 .game-container-footer .expand-button,
 .game-container-footer .collapse-button {
-    background-image: url(../images/chevrons-down.svg);
-    background-size: 2.4vw 2.4vw;
-    background-repeat: no-repeat;
-    background-position: calc(100% - 0.4vw) 0.6vw;
-    height: 3vw;
-    position: relative;
-    border-radius: 2px;
-    opacity: 0.7;
-    cursor: pointer;
-    padding: 0.8vw 3.6vw 0 1vw;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin: -0.3vw 0 0 0;
+  background-image: url(/images/chevrons-down.svg);
+  background-size: 2.4vw 2.4vw;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 0.4vw) 0.6vw;
+  height: 3vw;
+  position: relative;
+  border-radius: 2px;
+  opacity: 0.7;
+  cursor: pointer;
+  padding: 0.8vw 3.6vw 0 1vw;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: -0.3vw 0 0 0;
 }
 
 .game-container-footer .collapse-button {
-    background-image: url(../images/chevrons-up.svg);
-    display: none;
+  background-image: url(/images/chevrons-up.svg);
+  display: none;
 }
 
 .game-container-footer .expand-button:hover {
-    background-color: rgb(255, 246, 160);
-    opacity: 1;
-    color: rgb(0, 0, 0);
+  background-color: rgb(255, 246, 160);
+  opacity: 1;
+  color: rgb(0, 0, 0);
 }
 
 .game-container-footer .collapse-button:hover {
-    background-color: rgb(255, 246, 160);
-    opacity: 1;
-    color: rgb(0, 0, 0);
+  background-color: rgb(255, 246, 160);
+  opacity: 1;
+  color: rgb(0, 0, 0);
 }
 
-
 .network-game-active .game-container-footer {
-    pointer-events: all;
-    opacity: 1;
+  pointer-events: all;
+  opacity: 1;
 }
 
 .network-game-active.network-game-open .game-container {
-    transform: translate(0, 0);
-} 
+  transform: translate(0, 0);
+}
 
 .network-game-active.network-game-open .game-container .collapse-button {
-    display: block;
+  display: block;
 }
 .network-game-active.network-game-open .game-container .expand-button {
-    display: none;
+  display: none;
 }
 
 /* ============= OPPONENT BOARDS ============================ */
 
-
-.opponent-board-wrapper   {
-    margin: 0 1vw 0 0;
-    opacity: 0.4;
+.opponent-board-wrapper {
+  margin: 0 1vw 0 0;
+  opacity: 0.4;
 }
 
 .opponent-board-wrapper:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 .opponent-title {
-    font-family: sans-serif;
-    font-size: 1.8vw;
-    color: rgb(230, 240, 255);
-    overflow: hidden;
-    height: 2.8vw;
-    padding: 0.5vw 0 0 0.7vw; 
+  font-family: sans-serif;
+  font-size: 1.8vw;
+  color: rgb(230, 240, 255);
+  overflow: hidden;
+  height: 2.8vw;
+  padding: 0.5vw 0 0 0.7vw;
 }
 
 .opponent-board-wrapper .board-wrap {
-    width: 16.6vw;
-    height: 15.4vw;
-    padding: 0;
-    margin: 0;
+  width: 16.6vw;
+  height: 15.4vw;
+  padding: 0;
+  margin: 0;
 }
- 
 
 .opponent-board-wrapper .board-wrap:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 .opponent-board-wrapper .row {
-    height: 9%;
-} 
+  height: 9%;
+}
 .opponent-board-wrapper .row .cell {
-    border-width: 0;
-    line-height: 1;
-    width: 9%;
+  border-width: 0;
+  line-height: 1;
+  width: 9%;
 }
 
-.opponent-board-wrapper  .row .cell.label {
-    width: 0;
-    display: none;
+.opponent-board-wrapper .row .cell.label {
+  width: 0;
+  display: none;
 }
 
 .opponent-board-wrapper .row.numbers-row {
-    height: 0;
-    display: none;
+  height: 0;
+  display: none;
 }
 .opponent-board-wrapper .game-square {
-    background-color: rgb(50, 64, 96);
+  background-color: rgb(50, 64, 96);
 }
 
 .opponent-board-wrapper .game-square.forest {
-    font-size: 20px;
-    background-color: rgb(50, 145, 70);
-    background-image: repeating-radial-gradient( circle at 0.5em 0.5em, rgb(30, 135, 50), rgb(30, 135, 50) 0.1em, transparent 0.11em, transparent 0.45em, rgb(30, 135, 150) 0.46em);
-    background-size: 1em 1em;
-    background-position: 0.5em 0.5em;
+  font-size: 20px;
+  background-color: rgb(50, 145, 70);
+  background-image: repeating-radial-gradient(
+    circle at 0.5em 0.5em,
+    rgb(30, 135, 50),
+    rgb(30, 135, 50) 0.1em,
+    transparent 0.11em,
+    transparent 0.45em,
+    rgb(30, 135, 150) 0.46em
+  );
+  background-size: 1em 1em;
+  background-position: 0.5em 0.5em;
 }
 
 .opponent-board-wrapper .game-square.river {
-    background: radial-gradient(circle at 100% 50%, rgb(0 0 0 / 0%) 20%, rgba(255,255,255,.3) 21%, rgba(255,255,255,.3) 34%, rgb(0 0 0 / 0%) 35%, rgb(0 0 0 / 0%)), radial-gradient(circle at 0% 50%, rgb(0 0 0 / 0%) 20%, rgba(255,255,255,.3) 21%, rgba(255,255,255,.3) 34%, rgb(0 0 0 / 0%) 35%, rgb(0 0 0 / 0%)) 0 -6vw;
-    background-color: rgb(20 70 120);
-    background-size: 1vw 1.33vw;
+  background:
+    radial-gradient(
+      circle at 100% 50%,
+      rgb(0 0 0 / 0%) 20%,
+      rgba(255, 255, 255, 0.3) 21%,
+      rgba(255, 255, 255, 0.3) 34%,
+      rgb(0 0 0 / 0%) 35%,
+      rgb(0 0 0 / 0%)
+    ),
+    radial-gradient(
+        circle at 0% 50%,
+        rgb(0 0 0 / 0%) 20%,
+        rgba(255, 255, 255, 0.3) 21%,
+        rgba(255, 255, 255, 0.3) 34%,
+        rgb(0 0 0 / 0%) 35%,
+        rgb(0 0 0 / 0%)
+      )
+      0 -6vw;
+  background-color: rgb(20 70 120);
+  background-size: 1vw 1.33vw;
 }
 
 .opponent-board-wrapper .game-square.field {
-    background-color: rgb(100, 90, 70);
-    background-image: repeating-linear-gradient(45deg, rgb(0 0 0 / 0%), rgb(0 0 0 / 0%) 7.5px, rgba(255,255,255,0.2) 7.5px, rgba(255,255,255,0.2) 13px);
+  background-color: rgb(100, 90, 70);
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgb(0 0 0 / 0%),
+    rgb(0 0 0 / 0%) 7.5px,
+    rgba(255, 255, 255, 0.2) 7.5px,
+    rgba(255, 255, 255, 0.2) 13px
+  );
 }
 
 .opponent-board-wrapper .game-square.town {
-    background:
-    linear-gradient(45deg, rgb(160, 40, 20) 11.25px, transparent 11.25px) 16px 16px,
-    linear-gradient(45deg, rgb(160, 40, 20) 11.25px, transparent 11.25px,transparent 22.75px, rgb(160, 40, 20) 22.75px, rgb(140, 20, 0) 33.75px, transparent 33.75px),
-    linear-gradient(-45deg, rgb(160, 40, 20) 5.75px, transparent 5.75px, transparent 17px, rgb(160, 40, 20) 17px, rgb(160, 40, 20) 28.25px,transparent 28.25px,transparent 38.5px, rgb(100, 20, 0) 38.5px);
-    background-color:rgb(140, 20, 0);
-    background-size: 32px 32px;
+  background:
+    linear-gradient(45deg, rgb(160, 40, 20) 11.25px, transparent 11.25px) 16px
+      16px,
+    linear-gradient(
+      45deg,
+      rgb(160, 40, 20) 11.25px,
+      transparent 11.25px,
+      transparent 22.75px,
+      rgb(160, 40, 20) 22.75px,
+      rgb(140, 20, 0) 33.75px,
+      transparent 33.75px
+    ),
+    linear-gradient(
+      -45deg,
+      rgb(160, 40, 20) 5.75px,
+      transparent 5.75px,
+      transparent 17px,
+      rgb(160, 40, 20) 17px,
+      rgb(160, 40, 20) 28.25px,
+      transparent 28.25px,
+      transparent 38.5px,
+      rgb(100, 20, 0) 38.5px
+    );
+  background-color: rgb(140, 20, 0);
+  background-size: 32px 32px;
 }
 
 .opponent-board-wrapper .game-square.crevasse {
-    background-color: #6d695c;
-    background-image:
-    repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
-    repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
-    linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
-    linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
-    background-size: 2vw 4vw;
-    cursor: default;
-    border-color: rgb(109, 105, 92);
+  background-color: #6d695c;
+  background-image:
+    repeating-linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px,
+      transparent 60px
+    ),
+    repeating-linear-gradient(
+      60deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px,
+      transparent 60px
+    ),
+    linear-gradient(
+      60deg,
+      rgba(0, 0, 0, 0.1) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgba(0, 0, 0, 0.1) 75%,
+      rgba(0, 0, 0, 0.1)
+    ),
+    linear-gradient(
+      120deg,
+      rgba(0, 0, 0, 0.1) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgba(0, 0, 0, 0.1) 75%,
+      rgba(0, 0, 0, 0.1)
+    );
+  background-size: 2vw 4vw;
+  cursor: default;
+  border-color: rgb(109, 105, 92);
 }
 
 .opponent-board-wrapper .game-square.monster {
-    background-color: rgb(80, 80, 140);
+  background-color: rgb(80, 80, 140);
 }
 
 .opponent-board-wrapper .game-square.monster::before {
-    background-image: none;
-    display: none;
+  background-image: none;
+  display: none;
 }
 
 .opponent-board-wrapper .game-square.mountain {
-    background-color: rgb(80, 120, 140);
-    border: solid 1px rgb(140, 148, 143);
+  background-color: rgb(80, 120, 140);
+  border: solid 1px rgb(140, 148, 143);
 }
 
 .opponent-board-wrapper .game-square.ruins::after {
-    background-image: none;
-    content: '%';
-    color: rgb(220, 230, 255);
-    display: block;
-    position: absolute;
-    font-size: 1vw;
-    opacity: 0.2;
-    font-family: sans-serif;
-    top: 0.3vw;
-    left: 0.3vw;
-    font-weight: bold;
+  background-image: none;
+  content: "%";
+  color: rgb(220, 230, 255);
+  display: block;
+  position: absolute;
+  font-size: 1vw;
+  opacity: 0.2;
+  font-family: sans-serif;
+  top: 0.3vw;
+  left: 0.3vw;
+  font-weight: bold;
 }
 
 .opponent-board-wrapper .game-square.mountain::after {
-    display: none;
+  display: none;
 }
-
 
 /* ============ OPPONENT BOARD -- HOVER COLORS ==================== */
 
-
-
 .opponent-board-wrapper:hover .game-square.forest {
-    background-color: rgb(110, 205, 130);
-    background-image: repeating-radial-gradient( circle at 0.5em 0.5em, rgb(90, 195, 110), rgb(90, 195, 110) 0.1em, transparent 0.11em, transparent 0.45em, rgb(90, 195, 110) 0.46em);
+  background-color: rgb(110, 205, 130);
+  background-image: repeating-radial-gradient(
+    circle at 0.5em 0.5em,
+    rgb(90, 195, 110),
+    rgb(90, 195, 110) 0.1em,
+    transparent 0.11em,
+    transparent 0.45em,
+    rgb(90, 195, 110) 0.46em
+  );
 }
 
 .opponent-board-wrapper:hover .game-square.river {
-    background-color: rgb(120 160 205);
+  background-color: rgb(120 160 205);
 }
 
 .opponent-board-wrapper:hover .game-square.field {
-    background-color: rgb(250, 190, 110);
+  background-color: rgb(250, 190, 110);
 }
 
 .opponent-board-wrapper:hover .game-square.town {
-    background:
-    linear-gradient(45deg, rgb(220, 100, 80) 11.25px, transparent 11.25px) 16px 16px,
-    linear-gradient(45deg, rgb(220, 100, 80) 11.25px, transparent 11.25px,transparent 22.75px, rgb(200, 80, 60) 22.75px, rgb(200, 80, 60) 33.75px, transparent 33.75px),
-    linear-gradient(-45deg, rgb(220, 100, 80) 5.75px, transparent 5.75px, transparent 17px, rgb(220, 100, 80) 17px, rgb(220, 100, 80) 28.25px,transparent 28.25px,transparent 38.5px, rgb(220, 100, 80) 38.5px);
-    background-color:rgb(200, 80, 60);
+  background:
+    linear-gradient(45deg, rgb(220, 100, 80) 11.25px, transparent 11.25px) 16px
+      16px,
+    linear-gradient(
+      45deg,
+      rgb(220, 100, 80) 11.25px,
+      transparent 11.25px,
+      transparent 22.75px,
+      rgb(200, 80, 60) 22.75px,
+      rgb(200, 80, 60) 33.75px,
+      transparent 33.75px
+    ),
+    linear-gradient(
+      -45deg,
+      rgb(220, 100, 80) 5.75px,
+      transparent 5.75px,
+      transparent 17px,
+      rgb(220, 100, 80) 17px,
+      rgb(220, 100, 80) 28.25px,
+      transparent 28.25px,
+      transparent 38.5px,
+      rgb(220, 100, 80) 38.5px
+    );
+  background-color: rgb(200, 80, 60);
 }
 
 .opponent-board-wrapper:hover .game-square.crevasse {
-    background-color: #6d695c;
-    background-image:
-    repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
-    repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
-    linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
-    linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
-    background-size: 2vw 4vw;
-    cursor: default;
-    border-color: rgb(109, 105, 92);
+  background-color: #6d695c;
+  background-image:
+    repeating-linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px,
+      transparent 60px
+    ),
+    repeating-linear-gradient(
+      60deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px,
+      transparent 60px
+    ),
+    linear-gradient(
+      60deg,
+      rgba(0, 0, 0, 0.1) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgba(0, 0, 0, 0.1) 75%,
+      rgba(0, 0, 0, 0.1)
+    ),
+    linear-gradient(
+      120deg,
+      rgba(0, 0, 0, 0.1) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgba(0, 0, 0, 0.1) 75%,
+      rgba(0, 0, 0, 0.1)
+    );
+  background-size: 2vw 4vw;
+  cursor: default;
+  border-color: rgb(109, 105, 92);
 }
 
 .opponent-board-wrapper:hover .game-square.monster {
-    background-color: rgb(180, 140, 240);
+  background-color: rgb(180, 140, 240);
 }
 
 .opponent-board-wrapper:hover .game-square.mountain {
-    background-color: rgb(170, 160, 140);
-    border: solid 1px rgb(220, 218, 213);
+  background-color: rgb(170, 160, 140);
+  border: solid 1px rgb(220, 218, 213);
 }
 
 .opponent-board-wrapper:hover .game-square.ruins::after {
-    opacity: 0.4;
+  opacity: 0.4;
 }
 
 .opponent-board-wrapper:hover .game-square.monster::before {
-    background-image: url(../images/monster.svg);
-    background-size: 1.5vw 1.4vw;
-    display: inline-block;
-    width: 1.6vw;
-    height: 1.4vw;
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0.2;
+  background-image: url(/images/monster.svg);
+  background-size: 1.5vw 1.4vw;
+  display: inline-block;
+  width: 1.6vw;
+  height: 1.4vw;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.2;
 }
-
-
 
 /* =============== FEATURED BOARD ===================== */
 
 .featured-board-modal {
-    position: absolute;
-    display: none;
-    opacity: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 80;
-    pointer-events: none;
+  position: absolute;
+  display: none;
+  opacity: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 80;
+  pointer-events: none;
 }
 
 .modal-background {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0, 30, 50, 0.9);
-    z-index: 10;
-    opacity: 0;
-    transition: opacity 500ms;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 30, 50, 0.9);
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 500ms;
 }
 
 .featured-board-modal .terrain-wrap {
-    width: 14vw;
-    padding: 0;
-    opacity: 0;
-    transition: opacity 300ms;
-    position: absolute;
-    z-index: 20;
-    top: 6vw;
-    left: 1.6vw;
+  width: 14vw;
+  padding: 0;
+  opacity: 0;
+  transition: opacity 300ms;
+  position: absolute;
+  z-index: 20;
+  top: 6vw;
+  left: 1.6vw;
 }
 
 .featured-board-modal .terrain-wrap .terrain-type {
-    display: none;
+  display: none;
 }
 
 .featured-board-modal .featured-player-location {
-    opacity: 0;
-    transition: opacity 300ms;
-    position: absolute;
-    top: 1vw;
-    right: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    color: rgb(200, 210, 230);
-    font-size: calc(12px + 2vw);
+  opacity: 0;
+  transition: opacity 300ms;
+  position: absolute;
+  top: 1vw;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  color: rgb(200, 210, 230);
+  font-size: calc(12px + 2vw);
 }
 
 .featured-player-location .close-me {
-    position: absolute;
-    right: 1.4vw;
-    font-size: calc(12px + 3.4vw);
-    font-family: sans-serif;
-    top: -1.6vw;
-    opacity: 0.2;
-    transform: scale(1, 0.8);
-    line-height: 1;
-    cursor: pointer;
+  position: absolute;
+  right: 1.4vw;
+  font-size: calc(12px + 3.4vw);
+  font-family: sans-serif;
+  top: -1.6vw;
+  opacity: 0.2;
+  transform: scale(1, 0.8);
+  line-height: 1;
+  cursor: pointer;
 }
 
 .featured-player-location .close-me:hover {
-    opacity: 1;
-    color: rgb(220, 100, 200);
+  opacity: 1;
+  color: rgb(220, 100, 200);
 }
 
 .featured-board-modal .featured-player-location .label {
-    margin: 0 1vw 0 0;
+  margin: 0 1vw 0 0;
 }
 
 .featured-board-modal .featured-player-location .featured-player-id {
-    margin: 0 0 0 1vw;
+  margin: 0 0 0 1vw;
 }
 
-
 .featured-board-modal .terrain-wrap .terrain-type.terrain-monster {
-    display: block;
+  display: block;
 }
 
 .featured-board-frame-background {
-    z-index: 16;
-    background: rgb(0, 30, 50);
-    border-radius: 4px;
-    position: absolute;
-    top: 9vw;
-    right: 6vw;
-    bottom: 0;
-    left: 6vw;
-    opacity: 0;
-    transition: opacity 300ms;
+  z-index: 16;
+  background: rgb(0, 30, 50);
+  border-radius: 4px;
+  position: absolute;
+  top: 9vw;
+  right: 6vw;
+  bottom: 0;
+  left: 6vw;
+  opacity: 0;
+  transition: opacity 300ms;
 }
 
 .featured-board-frame {
-    z-index: 20;
-    background: none;
-    border-radius: 4px;
-    position: absolute;
-    top: 9vw;
-    right: 6vw;
-    bottom: 0;
-    left: 6vw;
+  z-index: 20;
+  background: none;
+  border-radius: 4px;
+  position: absolute;
+  top: 9vw;
+  right: 6vw;
+  bottom: 0;
+  left: 6vw;
 }
 
 .featured-board-location {
-    transform: scale(0.8);
-    position: absolute;
-    top: 0;
-    bottom: 0;
+  transform: scale(0.8);
+  position: absolute;
+  top: 0;
+  bottom: 0;
 }
 
 .translate-arrived .featured-board-location {
-    overflow-y: auto;
-    overflow-x: visible;
+  overflow-y: auto;
+  overflow-x: visible;
 }
 
 .featured-board-modal .board-wrap {
-    transform-origin: 0 0; 
-    transition: none;
+  transform-origin: 0 0;
+  transition: none;
 }
-
-
 
 /* ===== FEATURE MODAL - TRANSITION IN OUT ============= */
 
 .featured-board-modal.show {
-    display: flex;
+  display: flex;
 }
 .featured-board-modal.opaque {
-    opacity: 1;
+  opacity: 1;
 }
 
-
 .featured-board-modal.translate-shifting .board-wrap {
-    transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .featured-board-modal.translate-arrived {
-    pointer-events: all;
+  pointer-events: all;
 }
 
 .featured-board-modal.translate-arrived .featured-board-frame-background {
-    opacity: 1;
+  opacity: 1;
 }
 
 .featured-board-modal.translate-arrived .modal-background {
-    opacity: 1;
+  opacity: 1;
 }
 
 .featured-board-modal.translate-arrived .terrain-wrap {
-    opacity: 1;
-} 
-
-.featured-board-modal.translate-arrived .featured-player-location {
-    opacity: 1;
+  opacity: 1;
 }
 
+.featured-board-modal.translate-arrived .featured-player-location {
+  opacity: 1;
+}
 
 body.network-game-active.network-game-open {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 /* ============= TOAST MESSAGES =============================== */
 
 #suc {
-    background: green;
+  background: green;
 }
 
 #info {
-    background: blue;
+  background: blue;
 }
 
 #warn {
-    background: orange;
+  background: orange;
 }
 
 #err {
-    background: red;
+  background: red;
 }
 
 .btn {
-    font-family: "helvetica neue";
-    font-weight: 100;
-    letter-spacing: 2px;
-    border-radius: 5px;
-    display: inline-block;
-    padding: 15px 30px;
-    color: white;
-    cursor: pointer;
+  font-family: "helvetica neue";
+  font-weight: 100;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 15px 30px;
+  color: white;
+  cursor: pointer;
 }
 
 /* Toast stylings */
 
 /* Entire toast container */
 .toast-container {
-    position: fixed;
-    z-index: 999999999;
-    width: 34vw;
+  position: fixed;
+  z-index: 999999999;
+  width: 34vw;
 }
- 
 
 /* Each toast gets this style */
 .toast {
-    width: 34vw;
-    font-weight: 200;
-    opacity: 1;
-    position: relative;
-    right: 0;
-    color: white;
-    background: rgba(50,50,50,.9);
-    padding: 1vw 2vw 1vw 3vw;
-    margin-bottom: 8px;
-    border-radius: 3px;
-    transition: .3s all ease;
-    font-family: sans-serif;
+  width: 34vw;
+  font-weight: 200;
+  opacity: 1;
+  position: relative;
+  right: 0;
+  color: white;
+  background: rgba(50, 50, 50, 0.9);
+  padding: 1vw 2vw 1vw 3vw;
+  margin-bottom: 8px;
+  border-radius: 3px;
+  transition: 0.3s all ease;
+  font-family: sans-serif;
 }
 
 .toast .close-me {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 4.4vw;
-    height: 4.2vw;
-    cursor: pointer;
-    color: rgba(250, 250, 250, 0.3);
-    font-weight: bold;
-    font-size: 2.6vw;
-    line-height: 1;
-    padding: 1.4vw 1vw 0 0.6vw;
-    text-transform: uppercase;
-    transform: scale(1, 0.8);
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4.4vw;
+  height: 4.2vw;
+  cursor: pointer;
+  color: rgba(250, 250, 250, 0.3);
+  font-weight: bold;
+  font-size: 2.6vw;
+  line-height: 1;
+  padding: 1.4vw 1vw 0 0.6vw;
+  text-transform: uppercase;
+  transform: scale(1, 0.8);
 }
 
 .toast .close-me:hover {
-    color: rgba(255, 200, 240, 1);
+  color: rgba(255, 200, 240, 1);
 }
 
 .join-table {
-    font-family: sans-serif;
-    font-size: calc(12px + 1.4vw);
-    letter-spacing: 0.01em;
+  font-family: sans-serif;
+  font-size: calc(12px + 1.4vw);
+  letter-spacing: 0.01em;
 }
 
 .join-table .title {
-    text-transform: uppercase;
-    font-size: 0.6em;
-    font-weight: bold;
-    color: rgb(140, 100, 180);
-    padding: 0.6vw 0 1.4vw 1vw;
-    letter-spacing: 0;
+  text-transform: uppercase;
+  font-size: 0.6em;
+  font-weight: bold;
+  color: rgb(140, 100, 180);
+  padding: 0.6vw 0 1.4vw 1vw;
+  letter-spacing: 0;
 }
 
 .join-table .joiner {
-    margin: 0 -3vw 0.5vw -2vw;
-    padding: 1vw 6vw 1vw 2.6vw;
-    cursor: pointer;
-    color: rgba(250, 250, 250, 0.6);
-    position: relative;
+  margin: 0 -3vw 0.5vw -2vw;
+  padding: 1vw 6vw 1vw 2.6vw;
+  cursor: pointer;
+  color: rgba(250, 250, 250, 0.6);
+  position: relative;
 }
 
 .join-table .check {
-    background-image: url(../images/check-circle.svg);
-    color: rgb(250, 250, 250);
-    background-size: 2.4vw 2.4vw;
-    position: absolute;
-    display: none;
-    top: 1.4vw;
-    right: 3.1vw;
-    width: 2.4vw;
-    height: 2.4vw;
-    opacity: 1;
+  background-image: url(/images/check-circle.svg);
+  color: rgb(250, 250, 250);
+  background-size: 2.4vw 2.4vw;
+  position: absolute;
+  display: none;
+  top: 1.4vw;
+  right: 3.1vw;
+  width: 2.4vw;
+  height: 2.4vw;
+  opacity: 1;
 }
 
 .join-table .joiner:hover {
-    background: rgba(250, 250, 250, 0.1);
-    color: rgba(250, 250, 250, 1);
+  background: rgba(250, 250, 250, 0.1);
+  color: rgba(250, 250, 250, 1);
 }
 
 .join-table .joiner:hover .check {
-    display: block;
+  display: block;
 }
 
 .join-table .joiner.pending {
-    pointer-events: none;
+  pointer-events: none;
 }
 
-
 .join-table .joiner.pending .check {
-    background-image: url(../images/more-horizontal.svg);
-    display: block;
-    opacity: 0.7;
+  background-image: url(/images/more-horizontal.svg);
+  display: block;
+  opacity: 0.7;
 
-    -webkit-transition-property: -webkit-transform;
-    -moz-transition-property: -moz-transform;
-    -o-transition-property: -o-transform;
-     transition-property: transform;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  transition-property: transform;
 
-     overflow:hidden;
-    -webkit-animation:spin 2s linear infinite;
-    -moz-animation:spin 2s linear infinite;
-    animation:spin 2s linear infinite;
+  overflow: hidden;
+  -webkit-animation: spin 2s linear infinite;
+  -moz-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
 }
 
 .toast.toast-exit {
-    transition: .4s all ease;
-    transform: translate3d(0,0,0);
-    right: -300px;
-    opacity: 0;
+  transition: 0.4s all ease;
+  transform: translate3d(0, 0, 0);
+  right: -300px;
+  opacity: 0;
 }
 
 /* Successful toast class */
 .toast-success {
-    background: rgba(126,211,33,.9);
-    box-shadow: 0 5px 15px rgba(126,211,33,.5);
+  background: rgba(126, 211, 33, 0.9);
+  box-shadow: 0 5px 15px rgba(126, 211, 33, 0.5);
 }
 
 .toast-info {
-    background: rgba(130,0,150, 0.98);
-    box-shadow: -14px 14px 36px rgba(0, 0, 0, 0.2);
-    border: solid 1px rgb(170, 70, 180);
+  background: rgba(130, 0, 150, 0.98);
+  box-shadow: -14px 14px 36px rgba(0, 0, 0, 0.2);
+  border: solid 1px rgb(170, 70, 180);
 }
 
 /* Error toast class */
 .toast-error {
-    background: rgba(50,0,50,0.95);
-    box-shadow: -14px 14px 36px rgba(0, 0, 0, 0.3);
-    border: solid 1px rgb(200, 200, 200);
-    font-size: calc(12px + 0.7vw);
-    min-height: 10vw;
-    padding-bottom: 3.4vw;
+  background: rgba(50, 0, 50, 0.95);
+  box-shadow: -14px 14px 36px rgba(0, 0, 0, 0.3);
+  border: solid 1px rgb(200, 200, 200);
+  font-size: calc(12px + 0.7vw);
+  min-height: 10vw;
+  padding-bottom: 3.4vw;
 }
 
 .toast-error .game-id {
-    color: rgb(210, 140, 250);
-    font-size: 1.2em;
+  color: rgb(210, 140, 250);
+  font-size: 1.2em;
 }
 
 /* Warn toast class */
 .toast-warn {
-    background: rgba(245,166,35,.9);
-    box-shadow: 0 5px 15px rgba(245,166,35,.5);
+  background: rgba(245, 166, 35, 0.9);
+  box-shadow: 0 5px 15px rgba(245, 166, 35, 0.5);
 }
-
-
-
-
-
-
-
-
-
