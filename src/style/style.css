@@ -1445,8 +1445,6 @@ ispin.js library
     font-size: calc(9px + 1.2vw);
     padding: 0.5vw 0.8vw;
   }
-  }
-  }
 
   /*
 DESKTOP TWO-COLUMN LAYOUT (≥ 900px wide)
@@ -1775,7 +1773,3 @@ DESKTOP TWO-COLUMN LAYOUT (≥ 900px wide)
     top: 0.65vw;
     left: 0.6vw;
   }
-
-  }
-
-  >>>>>>>origin/master
