@@ -25,9 +25,9 @@ npm run lint     # Run ESLint on src/ directory (note: config needed)
 
 **No automated tests.** Do not create test files unless explicitly requested.
 
-### Lint Configuration Note
+### Lint Configuration
 
-The `npm run lint` command currently fails due to missing ESLint configuration (ESLint v9+ requires `eslint.config.js`). To fix:
+`npm run lint` fails due to missing ESLint configuration (ESLint v9+ requires `eslint.config.js`). To fix:
 
 ```bash
 npm init @eslint/config
@@ -35,9 +35,13 @@ npm init @eslint/config
 # Or create minimal config manually
 ```
 
+### Code Formatting
+
+Prettier is installed but not configured. Use `npx prettier --write .` if needed.
+
 ## Code Style Guidelines
 
-### Architecture
+### Architecture & File Organization
 
 - **ES5-style JavaScript** with `'use strict'` for core game logic
 - **ES6 Modules** only for imports in `src/main.js`
@@ -46,32 +50,14 @@ npm init @eslint/config
   - `window.methods` - organized functionality (UX, network, DB)
   - `window.uxState` - current UI state
 - External libraries as globals: `firebase`, `ISpin`, `Fingerprint2`
-
-### File Organization
-
-- `index.html` - All HTML structure
-- `src/main.js` - Entry point, imports scripts in dependency order
-- `src/js/app.js` - Main orchestration, event wiring
-- `src/js/app-local.js` - Board rendering, local scoring (~1200 lines)
-- `src/js/app-opponents.js` - Opponent board views
-- `src/js/app-db.js` - Firebase integration
-- `src/js/nano.js` - DOM utility (`$()` and `nanoAll()`)
-- `src/js/ispin.js` - Number spinner library (3rd-party)
-- `src/js/tostada.js` - Utility functions
-- `src/style/style.css` - Main styles (uses `vmin`)
-- `src/style/style-players.css` - Multiplayer styles
-
-### Script Loading Order (src/main.js)
-
-Import in exact order:
-
-1. `nano.js` - DOM query utility
-2. `ispin.js` - number spinner library
-3. `tostada.js` - utility functions
-4. `app-local.js` - local game state, board rendering
-5. `app-opponents.js` - multiplayer UI logic
-6. `app-db.js` - Firebase integration
-7. `app.js` - main orchestration
+- **Script loading order** (`src/main.js`):
+  1. `nano.js` - DOM query utility
+  2. `ispin.js` - number spinner library
+  3. `tostada.js` - utility functions
+  4. `app-local.js` - board rendering, local scoring (~1200 lines)
+  5. `app-opponents.js` - opponent board views
+  6. `app-db.js` - Firebase integration
+  7. `app.js` - main orchestration
 
 ### JavaScript Conventions
 
@@ -81,22 +67,13 @@ Import in exact order:
 - **Functions**: Function expressions, not arrow functions. Attach to namespaces: `UX.updateAllBoards = function(player) {...}`
 - **Error Handling**: Use `console.log()` (with `window.DEBUG` checks). Check for null/undefined: `if (!board) return;`
 - **DOM Manipulation**: Use `nano.js` (`$()` and `nanoAll()`). Cache DOM references.
+- **Import/Export**: ES6 imports only in `src/main.js`. No ES6 exports in game logic; share via global `window` object.
 
 ### Naming Conventions
 
 - **Variables/Functions**: camelCase: `localPlayerName`, `updateOpponentData`
 - **CSS Classes/IDs**: kebab-case: `game-container`, `featured-board-modal`
 - **Global Namespaces**: lowercase: `methods`, `uxState`, `constants`. Uppercase sub-namespaces: `methods.UX`, `methods.DB`
-
-### Import/Export Patterns
-
-- **ES6 Imports** (`src/main.js` only): `import './style/style.css'; import './js/nano.js';`
-- **No ES6 Exports** in game logic. Share via global `window` object.
-
-### Code Structure Patterns
-
-- **Self-Executing Functions**: Use IIFE for scoping private variables
-- **State Management**: UI state in `window.uxState`, constants in `window.constants`, methods in `window.methods`
 
 ### CSS Conventions
 
@@ -111,59 +88,10 @@ Import in exact order:
 - **Database**: Games at `/games/{gameId}`, Players at `/players/{playerId}`
 - **Security**: Never commit `.env`. Use env vars (GitHub Actions secrets). Reference with `import.meta.env.VITE_*`
 
-### Deployment
+## Deployment
 
 - **GitHub Pages**: Automated via `.github/workflows/deploy.yml`. Builds on push to `master`, deploys `dist/`
 - **Vite Config**: Root `.`, output `dist/`, port `3000`, base path `/`
-
-## Common Issues & Solutions
-
-### Button Alignment Issues
-
-The "Join Game" button may overlap the grid due to:
-
-1. Parent container width constraints
-2. Absolute positioning of `.join-game-controls .panel`
-3. Viewport unit calculations
-
-**Fix Example** (see recent CSS edits):
-
-```css
-.join-button {
-  width: 100%; /* Fill parent container */
-  max-width: 275px; /* Limit maximum size */
-  margin: 1vw auto; /* Center horizontally */
-  display: block; /* Block-level for centering */
-  box-sizing: border-box; /* Include padding in width */
-}
-
-.join-game-controls .panel {
-  width: 100%; /* Constrain panel width */
-  max-width: 320px; /* Prevent overflow */
-  box-sizing: border-box; /* Consistent sizing */
-}
-```
-
-### Dev Server Issues
-
-If `npm run dev` fails or port 3000 is unreachable:
-
-```bash
-# Kill any processes on port 3000
-pkill -f vite
-lsof -ti:3000 | xargs kill -9
-
-# Restart dev server
-npm run dev
-```
-
-**Note**: Vite may use port 3001+ if 3000 is occupied. Check terminal output for the actual port.
-
-### Firebase Connection Problems
-
-1. Check `.env` file exists with correct Firebase credentials
-2. Verify environment variables are prefixed with `VITE_`
-3. For production: ensure GitHub Actions secrets are set (not environment variables)
 
 ## Agent Guidelines
 
@@ -193,6 +121,10 @@ After changes:
 4. **Verify responsive design** - Test at different viewport sizes
 5. **Check Firebase integration** - Test multiplayer features work
 
+## Cursor & Copilot Rules
+
+No Cursor rules (`.cursor/rules/` or `.cursorrules`) or Copilot instructions (`.github/copilot-instructions.md`) present.
+
 ## File References
 
 - `CLAUDE.md` - Architectural details and commands
@@ -200,10 +132,9 @@ After changes:
 - `DEPLOYMENT.md` - Deployment troubleshooting
 - `TROUBLESHOOTING.md` - Debugging guidance
 
-## Example Code Patterns
+## Example Code Pattern
 
 ```javascript
-// Typical module structure
 (function () {
   "use strict";
   var console = window.console;
@@ -214,13 +145,9 @@ After changes:
   var uxState = (window.uxState = window.uxState || {});
   var UX = (methods.UX = methods.UX || {});
 
-  // Function attached to namespace
   UX.updateAllBoards = function (player) {
     if (!player) return;
     // Implementation...
   };
-
-  // Constants
-  var LOCAL_PLAYER_DEFAULT_ID = "LOCAL_PLAYER_DEFAULT_ID";
 })();
 ```
