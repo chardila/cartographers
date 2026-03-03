@@ -472,8 +472,8 @@ body {
   cursor: pointer;
   width: 7vw;
   max-width: 90px;
-  height: 7vw;
-  max-height: 90px;
+  height: auto;
+  aspect-ratio: 1;
   padding: 1.1vw;
   border-radius: 7.5vw;
 }
@@ -1095,14 +1095,17 @@ input.score-input:focus {
 
 .terrain-wrap .terrain-monster .terrain-inner::before {
   background-image: url(/images/monster.svg);
-  background-size: 3.5vmin 3.3vmin;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   display: inline-block;
-  width: 3.5vmin;
-  height: 3.3vmin;
+  width: 70%;
+  height: 70%;
   content: "";
   position: absolute;
-  top: 0.5vmin;
-  left: 0.55vmin;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   opacity: 0.6;
 }
 
@@ -1287,16 +1290,18 @@ input.score-input {
 
   .terrain-wrap .terrain-type {
     width: 10vw;
-    height: 10vw;
+    height: auto;
+    aspect-ratio: 1;
     padding: 1.4vw;
   }
 
   .terrain-wrap .terrain-monster .terrain-inner::before {
-    background-size: 5.4vmin 5.3vmin;
-    width: 5.5vmin;
-    height: 5.1vmin;
-    top: 0.6vmin;
-    left: 0.7vmin;
+    background-size: contain;
+    width: 70%;
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .board-wrap {
