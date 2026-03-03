@@ -219,7 +219,7 @@ body {
 
 .join-game-controls .menu-button.join {
   background: rgb(225, 255, 200);
-  margin-left: 0;
+  margin-left: 4.3vmin;
 }
 
 .join-game-controls .menu-button.join:hover {
@@ -1309,17 +1309,13 @@ input.score-input {
     left: 1vmin;
   }
 
-  .board-wrap {
-    padding: 4vw 0vw;
-    width: min(98vw, calc(100vh - 260px));
-    height: min(98vw, calc(100vh - 260px));
+  .game-square.mountain::after {
+    background-size: 5.7vmin 5.7vmin;
+    width: 5.7vmin;
+    height: 5.7vmin;
+    top: 0.5vmin;
+    left: 0.9vmin;
   }
-
-  background-size: 5.7vmin 5.7vmin;
-  width: 5.7vmin;
-  height: 5.7vmin;
-  top: 0.5vmin;
-  left: 0.9vmin;
 }
 
 .game-square.ruins::after {
@@ -1450,7 +1446,7 @@ input.score-input {
 
 /* Align JOIN button with first square column on mobile */
 .join-game-controls .menu-button.join {
-  margin-left: 0;
+  margin-left: calc(min(98vw, calc(100vh - 260px)) * 0.05);
 }
 
 /*
@@ -1739,7 +1735,7 @@ DESKTOP TWO-COLUMN LAYOUT (≥ 900px wide)
 }
 
 .join-game-controls .menu-button.join {
-  margin-left: 0;
+  margin-left: calc((min(55vw, calc(100vh - 130px)) - 4vmin) * 0.05);
 }
 
 /* Terrain selector icons: scale down to fit inside terrain-type inner cell at large viewports */
