@@ -470,12 +470,14 @@ body {
 .terrain-wrap .terrain-type {
   position: relative;
   cursor: pointer;
-  width: 7vw;
-  max-width: 90px;
+  /* Match game board square size: board inner = 90vmin - 4vmin padding, each cell = 8.6% */
+  width: calc((90vmin - 4vmin) * 0.086);
   height: auto;
   aspect-ratio: 1;
-  padding: 1.1vw;
+  padding: 1.1vmin;
   border-radius: 7.5vw;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .terrain-wrap .terrain-type:hover {
@@ -1289,10 +1291,11 @@ input.score-input {
   }
 
   .terrain-wrap .terrain-type {
-    width: 10vw;
+    /* Match board squares on touch/mobile: board = min(98vw, 100vh-260px), each cell = 8.6% */
+    width: calc(min(98vw, calc(100vh - 260px)) * 0.086);
     height: auto;
     aspect-ratio: 1;
-    padding: 1.4vw;
+    padding: 1.4vmin;
   }
 
   .terrain-wrap .terrain-monster .terrain-inner::before {
@@ -1504,9 +1507,16 @@ DESKTOP TWO-COLUMN LAYOUT (≥ 900px wide)
     width: min(55vw, calc(100vh - 130px));
     max-width: none;
     padding: 1.5vw 2vmin 3vw 2vmin;
-    height: 7vw;
-    max-height: 90px;
+    height: auto;
     overflow: visible;
+  }
+
+  /* Match terrain squares to board game squares: board inner = (55vw or 100vh-130px) - 4vmin padding, each cell = 8.6% */
+  .terrain-wrap .terrain-type {
+    width: calc((min(55vw, calc(100vh - 130px)) - 4vmin) * 0.086);
+    height: auto;
+    aspect-ratio: 1;
+    padding: 1vmin;
   }
 
   /* Board: constrain to fit in viewport height.
@@ -1736,13 +1746,16 @@ DESKTOP TWO-COLUMN LAYOUT (≥ 900px wide)
   margin-left: calc((min(55vw, calc(100vh - 130px)) - 4vmin) * 0.05);
 }
 
-/* Terrain selector icons: scale down to fit inside terrain-type inner cell at large viewports */
+/* Terrain selector icons at desktop: center monster icon */
 .terrain-wrap .terrain-monster .terrain-inner::before {
-  background-size: 3vw 2.8vw;
-  width: 3vw;
-  height: 2.8vw;
-  top: 0.3vw;
-  left: 0.4vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 70%;
+  height: 70%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .terrain-mountain .terrain-inner::after {
