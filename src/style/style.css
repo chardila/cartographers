@@ -1041,14 +1041,14 @@ input.score-input:focus {
 
 .game-square.ruins::after {
   background-image: url(/images/ruins.svg);
-  background-size: 4.7vmin 5vmin;
+  background-size: 3.7vmin 4vmin;
   display: inline-block;
-  width: 4.7vmin;
-  height: 5vmin;
+  width: 3.7vmin;
+  height: 4vmin;
   content: "";
   position: absolute;
-  top: 0.8vmin;
-  left: 0.8vmin;
+  top: 1.3vmin;
+  left: 1.3vmin;
   opacity: 0.35;
   background-repeat: no-repeat;
   background-position: center;
@@ -1076,14 +1076,14 @@ input.score-input:focus {
 
 .game-square.mountain::after {
   background-image: url(/images/mountain.svg);
-  background-size: 5.2vmin 5vmin;
+  background-size: 4.2vmin 4vmin;
   display: inline-block;
-  width: 5.2vmin;
-  height: 5.1vmin;
+  width: 4.2vmin;
+  height: 4.1vmin;
   content: "";
   position: absolute;
-  top: 0.9vmin;
-  left: 0.8vmin;
+  top: 1.4vmin;
+  left: 1.3vmin;
   opacity: 0.4;
   background-repeat: no-repeat;
   background-position: center;
@@ -1310,17 +1310,17 @@ input.score-input {
   }
 
   .game-square.mountain::after {
-    background-size: 5.7vmin 5.7vmin;
-    width: 5.7vmin;
-    height: 5.7vmin;
-    top: 0.5vmin;
-    left: 0.9vmin;
+    background-size: 4.7vmin 4.7vmin;
+    width: 4.7vmin;
+    height: 4.7vmin;
+    top: 1vmin;
+    left: 1.4vmin;
   }
 }
 
 .game-square.ruins::after {
-  top: 1vmin;
-  left: 1.3vmin;
+  top: 1.5vmin;
+  left: 1.8vmin;
 }
 
 .gold-coins-wrap {
@@ -1620,20 +1620,20 @@ DESKTOP TWO-COLUMN LAYOUT (≥ 900px wide)
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    width: 72%;
-    height: 72%;
-    top: 14%;
-    left: 14%;
+    width: 55%;
+    height: 55%;
+    top: 22.5%;
+    left: 22.5%;
   }
 
   .game-square.ruins::after {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    width: 65%;
-    height: 65%;
-    top: 17.5%;
-    left: 17.5%;
+    width: 50%;
+    height: 50%;
+    top: 25%;
+    left: 25%;
   }
 }
 
@@ -1766,17 +1766,17 @@ DESKTOP TWO-COLUMN LAYOUT (≥ 900px wide)
 }
 
 .game-square.ruins::after {
-  background-size: 3.1vw 3.2vw;
-  width: 3.1vw;
-  height: 3.2vw;
-  top: 0.6vw;
-  left: 0.6vw;
+  background-size: 2.3vw 2.4vw;
+  width: 2.3vw;
+  height: 2.4vw;
+  top: 1vw;
+  left: 1vw;
 }
 
 .game-square.mountain::after {
-  background-size: 3.4vw 3.2vw;
-  width: 3.4vw;
-  height: 3.3vw;
-  top: 0.65vw;
-  left: 0.6vw;
+  background-size: 2.6vw 2.4vw;
+  width: 2.6vw;
+  height: 2.5vw;
+  top: 1.05vw;
+  left: 1vw;
 }
