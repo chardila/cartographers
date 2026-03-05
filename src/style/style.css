@@ -221,6 +221,10 @@ body {
 .join-game-controls .menu-button.join {
   background: rgb(225, 255, 200);
   margin-left: 4.3vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
 .join-game-controls .menu-button.join:hover {
