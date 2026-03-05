@@ -1508,7 +1508,7 @@ DESKTOP TWO-COLUMN LAYOUT (≥ 900px wide)
 
   /* Terrain selector fills the left column width */
   .terrain-wrap {
-    width: min(55vw, calc(100vh - 130px));
+    width: min(55vw, calc(100vh - 160px));
     max-width: none;
     padding: 1.5vw 2vmin 3vw 2vmin;
     height: auto;
@@ -1517,7 +1517,7 @@ DESKTOP TWO-COLUMN LAYOUT (≥ 900px wide)
 
   /* Match terrain squares to board game squares: board inner = (55vw or 100vh-130px) - 4vmin padding, each cell = 8.6% */
   .terrain-wrap .terrain-type {
-    width: calc((min(55vw, calc(100vh - 130px)) - 4vmin) * 0.086);
+    width: calc((min(55vw, calc(100vh - 160px)) - 4vmin) * 0.086);
     height: auto;
     aspect-ratio: 1;
     padding: 1vmin;
@@ -1525,12 +1525,12 @@ DESKTOP TWO-COLUMN LAYOUT (≥ 900px wide)
 
   /* Board: constrain to fit in viewport height.
        - 55vw: fills left column (which is 60% wide)
-       - calc(100vh - 130px): leaves room for title (~60px) and terrain bar (~70px)
+       - calc(100vh - 160px): leaves room for title (~60px) and terrain bar (~70px)
        Takes whichever is smaller so nothing overflows. 
        Mantener padding original para preservar iconos */
   .board-wrap {
-    width: min(55vw, calc(100vh - 130px));
-    height: min(55vw, calc(100vh - 130px));
+    width: min(55vw, calc(100vh - 160px));
+    height: min(55vw, calc(100vh - 160px));
     padding: 2vmin;
     /* Mantener padding original */
     overflow: visible;
@@ -1712,7 +1712,7 @@ DESKTOP TWO-COLUMN LAYOUT (≥ 900px wide)
 
 /* Terrain selector matches the board width and padding */
 .terrain-wrap {
-  width: min(55vw, calc(100vh - 130px));
+  width: min(55vw, calc(100vh - 160px));
   max-width: none;
   padding: 1.5vw 1vmin 1.5vw 1vmin;
   height: 7vw;
@@ -1721,11 +1721,11 @@ DESKTOP TWO-COLUMN LAYOUT (≥ 900px wide)
 
 /* Board: constrain to fit in viewport height.
        - 55vw: fills left column (which is 60% wide)
-       - calc(100vh - 130px): leaves room for title (~60px) and terrain bar (~70px)
+       - calc(100vh - 160px): leaves room for title (~60px) and terrain bar (~70px)
        Takes whichever is smaller so nothing overflows. */
 .board-wrap {
-  width: min(55vw, calc(100vh - 130px));
-  height: min(55vw, calc(100vh - 130px));
+  width: min(55vw, calc(100vh - 160px));
+  height: min(55vw, calc(100vh - 160px));
   padding: 2vmin 1vmin;
 }
 
@@ -1774,7 +1774,7 @@ DESKTOP TWO-COLUMN LAYOUT (≥ 900px wide)
 }
 
 .join-game-controls .menu-button.join {
-  margin-left: calc((min(55vw, calc(100vh - 130px)) - 4vmin) * 0.05);
+  margin-left: calc((min(55vw, calc(100vh - 160px)) - 4vmin) * 0.05);
 }
 
 /* Terrain selector icons at desktop: center monster icon */
@@ -1805,4 +1805,65 @@ DESKTOP TWO-COLUMN LAYOUT (≥ 900px wide)
   height: 3.4vw;
   top: 0.4vw;
   left: 0.5vw;
+}
+/* ===== NO-SCROLL DESKTOP LAYOUT (≥ 900px) ===== */
+@media (min-width: 900px) {
+
+  /* Anchor the height chain so flex/grid can distribute vertical space */
+  body {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .page-container {
+    height: 100vh;
+    /* grid-template-rows: auto 1fr already present — title bar gets auto,
+       col-board and col-scores share the remaining 1fr row */
+  }
+
+  /* Right column: flex column so score section fills remaining height */
+  .col-scores {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 0; /* CRITICAL: lets flex children shrink below content size */
+  }
+
+  /* Gold coins: fixed height, does not grow */
+  .gold-coins-wrap {
+    flex-shrink: 0;
+  }
+
+  /* Score cards section: fill remaining col-scores height via CSS grid */
+  .score-cards-wrap {
+    flex: 1;           /* fill all remaining vertical space after gold coins */
+    min-height: 0;     /* CRITICAL: allows flex item to shrink */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr); /* row 1: cards A+B, row 2: C+D, row 3: final */
+    gap: 1.5vw 2%;
+    padding: 1vw 0.5vw 0.5vw 0.5vw;
+    /* Override flex-direction/flex-wrap set by earlier rules */
+    flex-direction: unset;
+    flex-wrap: unset;
+    justify-content: unset;
+  }
+
+  /* Score cards: let the grid control size (no fixed height or margin) */
+  .score-card {
+    width: auto;
+    height: auto;
+    max-height: none;
+    margin: 0;
+  }
+
+  /* Final score card: spans both grid columns */
+  .final-score-card {
+    grid-column: 1 / -1;
+    width: auto;
+    height: auto;
+    max-height: none;
+    margin: 0;
+  }
+
 }
