@@ -9,13 +9,16 @@ npm run dev      # Start dev server at http://localhost:3000
 npm run build    # Build for production (outputs to dist/)
 npm run preview  # Preview production build locally
 npm run lint     # Run ESLint on src/
+npx prettier --write src/  # Format code (no npm script configured)
 ```
 
-There are no automated tests in this project.
+There are no automated tests in this project. Node.js v20+ is required.
 
 ## Environment Setup
 
 Firebase credentials are required. Copy `.env.example` to `.env` and fill in your Firebase project values. For production, these are injected as GitHub Actions secrets during CI/CD.
+
+Firebase is **not** an npm dependency — it is loaded dynamically at runtime from Google's CDN (`gstatic.com/firebasejs/7.14.2/`) inside `app.js`. This is why it doesn't appear in `package.json` and why the version is pinned.
 
 ## Architecture
 
@@ -42,7 +45,9 @@ The codebase uses ES5-style global namespaces on `window`:
   - `methods.network` — Firebase read/write operations
   - `methods.DB` — database helpers
 
-External libraries are also globals: `firebase`, `ISpin`, `Fingerprint2`.
+External libraries are also globals: `firebase`, `ISpin`, `Fingerprint2`. `Fingerprint2` generates a pseudo-unique player ID without requiring login.
+
+`window.DEBUG = true` is set in `src/main.js` and gates verbose `console.log` output throughout the codebase.
 
 ### Key Files
 
